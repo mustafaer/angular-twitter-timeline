@@ -1,6 +1,6 @@
 {
   "name": "angular-twitter-timeline",
-  "version": "0.0.6",
+  "version": "1.0.0",
   "description": "Angular Public Twitter Timeline Widget",
   "peerDependencies": {
     "@angular/common": "^13.3.0",
@@ -13,7 +13,25 @@
     "type": "git",
     "url": "https://github.com/mustafaer/angular-twitter-timeline.git"
   },
+  "url": "https://github.com/mustafaer/angular-twitter-timeline/issues",
+  "email": "mustafaer@protonmail.com",
   "author": "Mustafa Er",
   "license": "MIT",
-  "keywords": ["angular", "angular13", "public", "twitter", "timeline"]
+  "keywords": [
+    "angular",
+    "angular13",
+    "public",
+    "twitter",
+    "timeline"
+  ],
+  "funding": [
+    {
+      "type": "patreon",
+      "url": "https://www.patreon.com/mustafaer"
+    },
+    {
+      "type": "buymeacoffee",
+      "url": "https://www.buymeacoffee.com/mustafaer"
+    }
+  ]
 }
