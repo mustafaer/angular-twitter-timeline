@@ -1,24 +1,102 @@
-# AngularTwitterTimeline
+# Angular Twitter Timeline
+Embed Twitter Timeline in Angular application.
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
+## Installation
 
-## Code scaffolding
+To install this library, run:
 
-Run `ng generate component component-name --project angular-twitter-timeline` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project angular-twitter-timeline`.
-> Note: Don't forget to add `--project angular-twitter-timeline` or else it will be added to the default project in your `angular.json` file. 
+```bash
+$ npm i angular-twitter-timeline
+```
 
-## Build
+## Usage
 
-Run `ng build angular-twitter-timeline` to build the project. The build artifacts will be stored in the `dist/` directory.
+Import in your Angular app:
 
-## Publishing
 
-After building your library with `ng build angular-twitter-timeline`, go to the dist folder `cd dist/angular-twitter-timeline` and run `npm publish`.
+```typescript
+// Import angular-twitter-timeline
+import {AngularTwitterTimelineModule} from "angular-twitter-timeline";
 
-## Running unit tests
+@NgModule({
+  ...
+  imports: [
+    ...,
+    AngularTwitterTimelineModule
+  ],
+    ...
+})
+export class AppModule { }
+```
 
-Run `ng test angular-twitter-timeline` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Once the library is imported, you can use its component in your Angular application:
 
-## Further help
+```xml
+<!-- You can now use the library component in app.component.html -->
+<angular-twitter-timeline 
+	[data]="{sourceType: 'profile', url: 'mastercreagertv'}"
+	[opts]="{tweetLimit: 5}"
+></angular-twitter-timeline>
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Data
+Data can take value of `url` or `profile`.  
+If `url` is set, you have to provide a valid Twitter URL;  
+If `profile` is set, you have to set `screenName` as a valid Twitter screen name. E.g. `@mastercreagertv`.
+
+```typescript
+
+`url` and `screenName` are mutually exclusive.
+
+```typescript
+AngularTwitterTimelineDataInterface {
+  /**
+   * profile or URL
+   */
+  sourceType: string;
+  /**
+   * Valid Twitter username
+   */
+  screenName?: string;
+  /**
+   * Absolute URL of a Twitter profile, likes, list, or collection
+   */
+  url: string;
+}
+```
+
+## Options
+```typescript
+AngularTwitterTimelineOptionsInterface {
+  /**
+   * Render a timeline statically, displaying only n number of Tweets.
+   */
+  tweetLimit?: number;
+  /**
+   * Set a fixed height of the embedded widget
+   * Positive integer
+   */
+  height?: number;
+  /**
+   * Adjust the color of borders inside the widget.
+   * Hexadecimal color
+   */
+  borderColor?: string;
+  /**
+   * Sets the theme of the widget. Default = 'light'.
+   * 'light' or 'dark'
+   */
+  theme?: string;
+  /**
+   * Toggle the display of design elements in the widget. This parameter is a space-separated list of values
+   * Values: noheader, nofooter, noborders, transparent, noscrollbar
+   */
+  chrome?: string[];
+  /**
+   * Apply the specified aria-polite behavior to the rendered timeline.
+   * New Tweets may be added to the top of a timeline, affecting screen readers
+   * Values: polite, assertive, rude
+   */
+  ariaPolite?: string[];
+}
+```

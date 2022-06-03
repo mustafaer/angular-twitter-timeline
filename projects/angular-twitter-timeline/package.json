@@ -1,11 +1,19 @@
 {
   "name": "angular-twitter-timeline",
-  "version": "0.0.5",
+  "version": "0.0.6",
+  "description": "Angular Public Twitter Timeline Widget",
   "peerDependencies": {
     "@angular/common": "^13.3.0",
     "@angular/core": "^13.3.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mustafaer/angular-twitter-timeline.git"
+  },
+  "author": "Mustafa Er",
+  "license": "MIT",
+  "keywords": ["angular", "angular13", "public", "twitter", "timeline"]
 }
