@@ -4,7 +4,7 @@ import {AngularTwitterTimelineOptionsInterface} from "./angular-twitter-timeline
 import {AngularTwitterTimelineDataInterface} from "./angular-twitter-timeline-data.interface";
 
 @Component({
-  selector: 'lib-angular-twitter-timeline',
+  selector: 'angular-twitter-timeline',
   template: ``,
   styles: []
 })
