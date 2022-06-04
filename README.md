@@ -1,6 +1,10 @@
 # Angular Twitter Timeline
 Embed Twitter Timeline in Angular application.
 
+Supported version:
+```
+Angular 13
+```
 ## Installation
 
 To install this library, run:
