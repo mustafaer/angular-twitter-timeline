@@ -61,8 +61,7 @@ export class AngularTwitterTimelineComponent implements OnChanges {
               nativeElement,
               {...this.defaultOpts, ...this.opts}
             )
-            .then((embed: any) => {
-              // console.log(embed);
+            .then(() => {
             })
             .catch((error: any) => console.error(error))
         },

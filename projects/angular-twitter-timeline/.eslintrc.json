@@ -10,8 +10,8 @@
       ],
       "parserOptions": {
         "project": [
-          "projects/angular-twitter-timeline/tsconfig.lib.json",
-          "projects/angular-twitter-timeline/tsconfig.spec.json"
+          "./tsconfig.lib.json",
+          "./tsconfig.spec.json"
         ],
         "createDefaultProgram": true
       },
