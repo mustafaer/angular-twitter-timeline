@@ -5,6 +5,14 @@ Supported version:
 ```
 Angular 13
 ```
+
+## Demo
+[Demo](https://angular-ivy-mjqxkb.stackblitz.io)
+
+## Editor
+
+[Editor](https://stackblitz.com/edit/angular-ivy-mjqxkb?file=src/app/app.component.html)
+
 ## Installation
 
 To install this library, run:
