@@ -7,11 +7,11 @@ Angular 13
 ```
 
 ## Demo
-[Demo](https://angular-ivy-mjqxkb.stackblitz.io)
+[Demo](https://angular-twitter-timeline.stackblitz.io)
 
 ## Editor
 
-[Editor](https://stackblitz.com/edit/angular-ivy-mjqxkb?file=src/app/app.component.html)
+[Editor](https://stackblitz.com/edit/angular-twitter-timeline?file=src/app/app.component.ts)
 
 ## Installation
 
