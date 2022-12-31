@@ -1,6 +1,6 @@
 {
   "name": "angular-twitter-timeline",
-  "version": "13.0.0",
+  "version": "13.0.2",
   "description": "Angular Public Twitter Timeline Widget",
   "peerDependencies": {
     "@angular/common": "^13.0.0",

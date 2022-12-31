@@ -2,6 +2,14 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "@ngx-everything-uppercase": [
+        "../dist/angular-twitter-timeline/"
+      ],
+      "@angular/*": [
+        "./node_modules/@angular/*"
+      ]
+    },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,

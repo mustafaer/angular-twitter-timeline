@@ -1,6 +1,6 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {AngularTwitterTimelineComponent} from './angular-twitter-timeline.component';
+import { AngularTwitterTimelineComponent } from './angular-twitter-timeline.component';
 
 describe('AngularTwitterTimelineComponent', () => {
   let component: AngularTwitterTimelineComponent;

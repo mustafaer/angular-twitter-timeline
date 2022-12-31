@@ -1,6 +1,6 @@
-import {TestBed} from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
-import {AngularTwitterTimelineService} from './angular-twitter-timeline.service';
+import { AngularTwitterTimelineService } from './angular-twitter-timeline.service';
 
 describe('AngularTwitterTimelineService', () => {
   let service: AngularTwitterTimelineService;

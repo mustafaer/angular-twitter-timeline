@@ -1,7 +1,7 @@
-import {Component, ElementRef, Input, OnChanges} from '@angular/core';
-import {AngularTwitterTimelineService} from "./angular-twitter-timeline.service";
-import {AngularTwitterTimelineOptionsInterface} from "./angular-twitter-timeline-options.interface";
-import {AngularTwitterTimelineDataInterface} from "./angular-twitter-timeline-data.interface";
+import { Component, ElementRef, Input, OnChanges } from '@angular/core';
+import { AngularTwitterTimelineService } from "./angular-twitter-timeline.service";
+import { AngularTwitterTimelineOptionsInterface } from "./angular-twitter-timeline-options.interface";
+import { AngularTwitterTimelineDataInterface } from "./angular-twitter-timeline-data.interface";
 
 @Component({
   selector: 'angular-twitter-timeline',
@@ -21,7 +21,7 @@ export class AngularTwitterTimelineComponent implements OnChanges {
 
   defaultData: AngularTwitterTimelineDataInterface = {
     sourceType: 'url',
-    url: 'https://twitter.com/mastercreagertv',
+    url: 'https://twitter.com/mustafaer_dev',
     screenName: 'Mustafa ER'
   };
 
@@ -57,9 +57,9 @@ export class AngularTwitterTimelineComponent implements OnChanges {
           (<any>window)['twttr']
             .widgets
             .createTimeline(
-              {...this.defaultData, ...this.data},
+              { ...this.defaultData, ...this.data },
               nativeElement,
-              {...this.defaultOpts, ...this.opts}
+              { ...this.defaultOpts, ...this.opts }
             )
             .then(() => {
             })
