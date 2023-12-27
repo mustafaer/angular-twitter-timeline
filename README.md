@@ -1,12 +1,15 @@
 # Angular Twitter Timeline
+
 Embed Twitter Timeline in Angular application.
 
 Supported version:
+
 ```
-Angular 15
+Angular 16
 ```
 
 ## Demo
+
 [Demo](https://angular-twitter-timeline.stackblitz.io)
 
 ## Editor
@@ -25,10 +28,9 @@ $ npm i angular-twitter-timeline
 
 Import in your Angular app:
 
-
 ```typescript
 // Import angular-twitter-timeline
-import {AngularTwitterTimelineModule} from "angular-twitter-timeline";
+import { AngularTwitterTimelineModule } from "angular-twitter-timeline";
 
 @NgModule({
   ...
@@ -45,22 +47,21 @@ Once the library is imported, you can use its component in your Angular applicat
 
 ```xml
 <!-- You can now use the library component in app.component.html -->
-<angular-twitter-timeline 
+<angular-twitter-timeline
 	[data]="{sourceType: 'profile', url: 'mustafaer_dev'}"
 	[opts]="{tweetLimit: 5}"
 ></angular-twitter-timeline>
 ```
 
 ## Data
-Data can take value of `url` or `profile`.  
-If `url` is set, you have to provide a valid Twitter URL;  
-If `profile` is set, you have to set `screenName` as a valid Twitter screen name. E.g. `@mustafaer_dev`.
 
-```typescript
+Data can take value of `url` or `profile`.
+If `url` is set, you have to provide a valid Twitter URL;
+If `profile` is set, you have to set `screenName` as a valid Twitter screen name. E.g. `@mustafaer_dev`.
 
 `url` and `screenName` are mutually exclusive.
 
-```typescript
+```ts
 AngularTwitterTimelineDataInterface {
   /**
    * profile or URL
@@ -78,7 +79,8 @@ AngularTwitterTimelineDataInterface {
 ```
 
 ## Options
-```typescript
+
+```ts
 AngularTwitterTimelineOptionsInterface {
   /**
    * Render a timeline statically, displaying only n number of Tweets.
