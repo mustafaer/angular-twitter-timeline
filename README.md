@@ -5,7 +5,7 @@ Embed Twitter Timeline in Angular application.
 Supported version:
 
 ```
-Angular 16
+Angular 17
 ```
 
 ## Demo
