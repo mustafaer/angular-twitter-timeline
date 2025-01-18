@@ -4,4 +4,3 @@
 
 export * from './lib/angular-twitter-timeline.service';
 export * from './lib/angular-twitter-timeline.component';
-export * from './lib/angular-twitter-timeline.module';

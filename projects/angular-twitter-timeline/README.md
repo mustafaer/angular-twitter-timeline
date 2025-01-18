@@ -20,11 +20,11 @@ import { AngularTwitterTimelineModule } from "angular-twitter-timeline";
 
 @NgModule({
   ...
-  imports: [
-    ...,
-    AngularTwitterTimelineModule
-  ],
-    ...
+    imports: [
+  ...,
+  AngularTwitterTimelineModule
+],
+...
 })
 export class AppModule { }
 ```
@@ -34,9 +34,9 @@ Once the library is imported, you can use its component in your Angular applicat
 ```xml
 <!-- You can now use the library component in app.component.html -->
 <angular-twitter-timeline
-	[data]="{sourceType: 'profile', url: 'mustafaer_dev'}"
-	[opts]="{tweetLimit: 5}"
-></angular-twitter-timeline>
+  [data]="{sourceType: 'profile', url: 'mustafaer_dev'}"
+  [opts]="{tweetLimit: 5}"
+  ></angular-twitter-timeline>
 ```
 
 ## Data
