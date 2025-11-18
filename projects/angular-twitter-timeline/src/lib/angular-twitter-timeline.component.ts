@@ -1,19 +1,25 @@
-import {Component, ElementRef, Input, OnChanges} from '@angular/core';
-import {AngularTwitterTimelineService} from "./angular-twitter-timeline.service";
-import {AngularTwitterTimelineOptionsInterface} from "./angular-twitter-timeline-options.interface";
-import {AngularTwitterTimelineDataInterface} from "./angular-twitter-timeline-data.interface";
+import { Component, ElementRef, input, effect, inject } from '@angular/core';
+import { AngularTwitterTimelineService } from "./angular-twitter-timeline.service";
+import { AngularTwitterTimelineOptionsInterface } from "./angular-twitter-timeline-options.interface";
+import { AngularTwitterTimelineDataInterface } from "./angular-twitter-timeline-data.interface";
 
 @Component({
   selector: 'angular-twitter-timeline',
+  standalone: true,
   template: ``,
   providers: [AngularTwitterTimelineService]
 })
-export class AngularTwitterTimelineComponent implements OnChanges {
-  @Input() data?: AngularTwitterTimelineDataInterface;
+export class AngularTwitterTimelineComponent {
+  // Modern Angular signals
+  data = input<AngularTwitterTimelineDataInterface>();
+
   /**
    * A hash of additional options to configure the widget
    */
-  @Input() opts?: AngularTwitterTimelineOptionsInterface;
+  opts = input<AngularTwitterTimelineOptionsInterface>();
+
+  private element = inject(ElementRef);
+  private twitterTimelineService = inject(AngularTwitterTimelineService);
 
   defaultOpts: AngularTwitterTimelineOptionsInterface = {
     tweetLimit: 5
@@ -25,26 +31,24 @@ export class AngularTwitterTimelineComponent implements OnChanges {
     screenName: 'Mustafa ER'
   };
 
-  constructor(
-    private element: ElementRef,
-    private twitterTimelineService: AngularTwitterTimelineService
-  ) {
-  }
-
-  ngOnChanges() {
-    if (this.data && this.data.sourceType) {
-      switch (this.data.sourceType) {
-        case 'url':
-          delete this.defaultData.screenName;
-          break;
-        case 'profile':
-          delete this.defaultData.url;
-          break;
-        default:
-          break;
+  constructor() {
+    // Use effect to respond to input changes
+    effect(() => {
+      const currentData = this.data();
+      if (currentData && currentData.sourceType) {
+        switch (currentData.sourceType) {
+          case 'url':
+            delete this.defaultData.screenName;
+            break;
+          case 'profile':
+            delete this.defaultData.url;
+            break;
+          default:
+            break;
+        }
+        this.loadTwitterWidget();
       }
-      this.loadTwitterWidget();
-    }
+    });
   }
 
   loadTwitterWidget() {
@@ -57,9 +61,9 @@ export class AngularTwitterTimelineComponent implements OnChanges {
           (<any>window)['twttr']
             .widgets
             .createTimeline(
-              {...this.defaultData, ...this.data},
+              {...this.defaultData, ...this.data()},
               nativeElement,
-              {...this.defaultOpts, ...this.opts}
+              {...this.defaultOpts, ...this.opts()}
             )
             .then(() => {
             })

@@ -5,27 +5,26 @@ import { Observable } from "rxjs";
   providedIn: 'root'
 })
 export class AngularTwitterTimelineService {
-  private TWITTER_SCRIPT_ID = 'twitter-wjs';
-  private TWITTER_WIDGET_URL = 'https://platform.twitter.com/widgets.js';
+  private readonly TWITTER_SCRIPT_ID = 'twitter-wjs';
+  private readonly TWITTER_WIDGET_URL = 'https://platform.twitter.com/widgets.js';
 
   loadScript(): Observable<any> {
     return new Observable((observer) => {
-
       this.startScriptLoad();
 
       (<any>window)['twttr'].ready((twttr: any) => {
         observer.next(twttr);
         observer.complete();
       });
-
     });
   }
 
-  private startScriptLoad() {
+  private startScriptLoad(): void {
     (<any>window)['twttr'] = (function (d, s, id, url) {
-      let script: any,
-        firstScriptEl: any = d.getElementsByTagName(s)[0],
-        twitterScript: any = (<any>window)['twttr'] || {};
+      let script: any;
+      let firstScriptEl: any = d.getElementsByTagName(s)[0];
+      let twitterScript: any = (<any>window)['twttr'] || {};
+
       if (d.getElementById(id)) {
         return twitterScript;
       }

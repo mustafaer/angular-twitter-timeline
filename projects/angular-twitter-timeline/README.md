@@ -12,17 +12,36 @@ $ npm i angular-twitter-timeline
 
 ## Usage
 
-Import in your Angular app:
+### Standalone Component (Recommended for Angular 20)
+
+Import the component directly in your Angular app:
+
+```ts
+// Import angular-twitter-timeline standalone component
+import { AngularTwitterTimelineComponent } from "angular-twitter-timeline";
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [AngularTwitterTimelineComponent],
+  templateUrl: './app.component.html'
+})
+export class AppComponent { }
+```
+
+### Module-based (Legacy)
+
+If you're still using NgModules:
 
 ```ts
 // Import angular-twitter-timeline
-import { AngularTwitterTimelineModule } from "angular-twitter-timeline";
+import { AngularTwitterTimelineComponent } from "angular-twitter-timeline";
 
 @NgModule({
   ...
     imports: [
   ...,
-  AngularTwitterTimelineModule
+  AngularTwitterTimelineComponent
 ],
 ...
 })
