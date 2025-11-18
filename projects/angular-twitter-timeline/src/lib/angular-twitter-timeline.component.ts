@@ -22,7 +22,8 @@ export class AngularTwitterTimelineComponent {
   private twitterTimelineService = inject(AngularTwitterTimelineService);
 
   defaultOpts: AngularTwitterTimelineOptionsInterface = {
-    tweetLimit: 5
+    theme: 'light',
+    height: 600
   };
 
   defaultData: AngularTwitterTimelineDataInterface = {

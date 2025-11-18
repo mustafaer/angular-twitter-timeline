@@ -1,33 +1,63 @@
+/**
+ * Updated interface for X (Twitter) Embedded Timeline options
+ * Based on the latest X platform changes (November 2024)
+ * Reference: https://twittercommunity.com/t/embedded-timelines-update-parameters-support/177112
+ *
+ * DEPRECATED PARAMETERS (no longer supported):
+ * - tweetLimit (removed)
+ * - chrome (removed)
+ * - ariaPolite (removed)
+ * - borderColor (removed)
+ */
 export class AngularTwitterTimelineOptionsInterface {
   /**
-   * Render a timeline statically, displaying only n number of Tweets.
-   * Range: 1-20
-   */
-  tweetLimit?: number;
-  /**
    * Set a fixed height of the embedded widget
-   * Positive integer
+   * Positive integer (in pixels)
+   * Recommended range: 200-2000
    */
   height?: number;
+
   /**
-   * Adjust the color of borders inside the widget.
-   * Hexadecimal color
+   * Set a fixed width of the embedded widget
+   * Positive integer (in pixels)
+   * Note: Timeline will be responsive if not specified
    */
-  borderColor?: string;
+  width?: number;
+
   /**
    * Sets the theme of the widget. Default = 'light'.
-   * 'light' or 'dark'
+   * Supported values: 'light' or 'dark'
    */
-  theme?: string;
+  theme?: 'light' | 'dark';
+
   /**
-   * Toggle the display of design elements in the widget. This parameter is a space-separated list of values
-   * Values: noheader, nofooter, noborders, transparent, noscrollbar
+   * Language code for the rendered timeline
+   * BCP 47 language code (e.g., 'en', 'es', 'fr', 'de', 'ja')
+   * Default: User's browser language
+   */
+  lang?: string;
+
+  /**
+   * @deprecated This parameter is no longer supported by X (Twitter)
+   * Previously used to limit the number of tweets displayed
+   */
+  tweetLimit?: number;
+
+  /**
+   * @deprecated This parameter is no longer supported by X (Twitter)
+   * Previously used to adjust border colors
+   */
+  borderColor?: string;
+
+  /**
+   * @deprecated This parameter is no longer supported by X (Twitter)
+   * Previously used to toggle display elements (noheader, nofooter, etc.)
    */
   chrome?: string[];
+
   /**
-   * Apply the specified aria-polite behavior to the rendered timeline.
-   * New Tweets may be added to the top of a timeline, affecting screen readers
-   * Values: polite, assertive, rude
+   * @deprecated This parameter is no longer supported by X (Twitter)
+   * Previously used for aria-polite behavior
    */
   ariaPolite?: string[];
 }

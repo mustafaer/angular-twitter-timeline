@@ -53,69 +53,68 @@ Once the library is imported, you can use its component in your Angular applicat
 ```xml
 <!-- You can now use the library component in app.component.html -->
 <angular-twitter-timeline
-  [data]="{sourceType: 'profile', url: 'mustafaer_dev'}"
-  [opts]="{tweetLimit: 5}"
+  [data]="{sourceType: 'profile', screenName: 'mustafaer_dev'}"
+  [opts]="{height: 600, theme: 'light'}"
   ></angular-twitter-timeline>
 ```
+
+> **⚠️ Important Update**: X (Twitter) has deprecated several timeline parameters. See the main README for details.
 
 ## Data
 
 Data can take value of `url` or `profile`.
-If `url` is set, you have to provide a valid Twitter URL;
-If `profile` is set, you have to set `screenName` as a valid Twitter screen name. E.g. `@mustafaer_dev`.
+If `url` is set, you have to provide a valid Twitter/X URL;
+If `profile` is set, you have to set `screenName` as a valid Twitter/X screen name (without @ symbol). E.g. `mustafaer_dev`.
 
 `url` and `screenName` are mutually exclusive.
 
 ```ts
 AngularTwitterTimelineDataInterface {
   /**
-   * profile or URL
+   * Type of timeline to embed
    */
-  sourceType: string;
+  sourceType: 'profile' | 'url';
   /**
-   * Valid Twitter username
+   * Valid X (Twitter) username (without @ symbol)
    */
   screenName?: string;
   /**
-   * Absolute URL of a Twitter profile, likes, list, or collection
+   * Absolute URL of an X (Twitter) profile, likes, list, or collection
    */
-  url: string;
+  url?: string;
 }
 ```
 
 ## Options
 
+### Currently Supported ✅
+
 ```ts
 AngularTwitterTimelineOptionsInterface {
   /**
-   * Render a timeline statically, displaying only n number of Tweets.
-   */
-  tweetLimit?: number;
-  /**
-   * Set a fixed height of the embedded widget
-   * Positive integer
+   * Set a fixed height of the embedded widget (in pixels)
    */
   height?: number;
   /**
-   * Adjust the color of borders inside the widget.
-   * Hexadecimal color
+   * Set a fixed width of the embedded widget (in pixels)
    */
-  borderColor?: string;
+  width?: number;
   /**
-   * Sets the theme of the widget. Default = 'light'.
-   * 'light' or 'dark'
+   * Sets the theme of the widget
    */
-  theme?: string;
+  theme?: 'light' | 'dark';
   /**
-   * Toggle the display of design elements in the widget. This parameter is a space-separated list of values
-   * Values: noheader, nofooter, noborders, transparent, noscrollbar
+   * Language code (BCP 47)
    */
-  chrome?: string[];
-  /**
-   * Apply the specified aria-polite behavior to the rendered timeline.
-   * New Tweets may be added to the top of a timeline, affecting screen readers
-   * Values: polite, assertive, rude
-   */
-  ariaPolite?: string[];
+  lang?: string;
 }
 ```
+
+### Deprecated ❌
+
+The following parameters are deprecated and no longer functional:
+- `tweetLimit`
+- `borderColor`
+- `chrome`
+- `ariaPolite`
+
