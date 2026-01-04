@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
-import { Observable } from "rxjs";
+import { Injectable, inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { Observable, of } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -7,19 +8,41 @@ import { Observable } from "rxjs";
 export class AngularTwitterTimelineService {
   private readonly TWITTER_SCRIPT_ID = 'twitter-wjs';
   private readonly TWITTER_WIDGET_URL = 'https://platform.twitter.com/widgets.js';
+  private platformId = inject(PLATFORM_ID);
 
   loadScript(): Observable<any> {
+    if (!isPlatformBrowser(this.platformId)) {
+      return of(null);
+    }
+
     return new Observable((observer) => {
       this.startScriptLoad();
 
-      (<any>window)['twttr'].ready((twttr: any) => {
-        observer.next(twttr);
-        observer.complete();
-      });
+      if ((<any>window)['twttr'] && (<any>window)['twttr'].ready) {
+        (<any>window)['twttr'].ready((twttr: any) => {
+          observer.next(twttr);
+          observer.complete();
+        });
+      } else {
+        // Fallback if ready is not available immediately
+        const checkInterval = setInterval(() => {
+           if ((<any>window)['twttr'] && (<any>window)['twttr'].ready) {
+             clearInterval(checkInterval);
+             (<any>window)['twttr'].ready((twttr: any) => {
+               observer.next(twttr);
+               observer.complete();
+             });
+           }
+        }, 100);
+      }
     });
   }
 
   private startScriptLoad(): void {
+    if (document.getElementById(this.TWITTER_SCRIPT_ID)) {
+      return;
+    }
+
     (<any>window)['twttr'] = (function (d, s, id, url) {
       let script: any;
       let firstScriptEl: any = d.getElementsByTagName(s)[0];

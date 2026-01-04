@@ -1,29 +1,46 @@
 {
   "name": "angular-twitter-timeline",
-  "version": "20.0.0",
-  "description": "Angular Public Twitter Timeline Widget",
+  "version": "21.0.0",
+  "description": "Angular 21+ component for embedding X (Twitter) timelines. Supports Signals, SSR, and standalone usage.",
+  "keywords": [
+    "angular",
+    "twitter",
+    "x",
+    "timeline",
+    "widget",
+    "embed",
+    "feed",
+    "component",
+    "standalone",
+    "signals",
+    "ssr",
+    "angular-component",
+    "twitter-widget",
+    "x-timeline",
+    "angular21"
+  ],
+  "homepage": "https://github.com/mustafaer/angular-twitter-timeline#readme",
+  "bugs": {
+    "url": "https://github.com/mustafaer/angular-twitter-timeline/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mustafaer/angular-twitter-timeline.git"
+  },
+  "author": {
+    "name": "Mustafa ER",
+    "email": "mustafaerpro@gmail.com",
+    "url": "https://github.com/mustafaer"
+  },
+  "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^20.0.0",
-    "@angular/core": "^20.0.0"
+    "@angular/common": "^21.0.0",
+    "@angular/core": "^21.0.0"
   },
   "dependencies": {
     "tslib": "^2.8.0"
   },
   "sideEffects": false,
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mustafaer/angular-twitter-timeline.git"
-  },
-  "url": "https://github.com/mustafaer/angular-twitter-timeline/issues",
-  "email": "mustafaerpro@gmail.com",
-  "author": "Mustafa ER",
-  "license": "MIT",
-  "keywords": [
-    "angular",
-    "public",
-    "twitter",
-    "timeline"
-  ],
   "funding": [
     {
       "type": "patreon",

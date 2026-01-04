@@ -1,4 +1,5 @@
-import { Component, ElementRef, input, effect, inject } from '@angular/core';
+import { Component, ElementRef, input, effect, inject, ChangeDetectionStrategy, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { AngularTwitterTimelineService } from "./angular-twitter-timeline.service";
 import { AngularTwitterTimelineOptionsInterface } from "./angular-twitter-timeline-options.interface";
 import { AngularTwitterTimelineDataInterface } from "./angular-twitter-timeline-data.interface";
@@ -7,11 +8,11 @@ import { AngularTwitterTimelineDataInterface } from "./angular-twitter-timeline-
   selector: 'angular-twitter-timeline',
   standalone: true,
   template: ``,
-  providers: [AngularTwitterTimelineService]
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AngularTwitterTimelineComponent {
   // Modern Angular signals
-  data = input<AngularTwitterTimelineDataInterface>();
+  data = input.required<AngularTwitterTimelineDataInterface>();
 
   /**
    * A hash of additional options to configure the widget
@@ -20,6 +21,7 @@ export class AngularTwitterTimelineComponent {
 
   private element = inject(ElementRef);
   private twitterTimelineService = inject(AngularTwitterTimelineService);
+  private platformId = inject(PLATFORM_ID);
 
   defaultOpts: AngularTwitterTimelineOptionsInterface = {
     theme: 'light',
@@ -53,6 +55,10 @@ export class AngularTwitterTimelineComponent {
   }
 
   loadTwitterWidget() {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
     this.twitterTimelineService
       .loadScript()
       .subscribe({

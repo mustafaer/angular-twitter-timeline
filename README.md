@@ -2,9 +2,9 @@
 
 [![npm version](https://img.shields.io/npm/v/angular-twitter-timeline.svg)](https://www.npmjs.com/package/angular-twitter-timeline)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Angular](https://img.shields.io/badge/Angular-20-red.svg)](https://angular.io/)
+[![Angular](https://img.shields.io/badge/Angular-21-red.svg)](https://angular.io/)
 
-> Embed X (Twitter) timelines in your Angular 20+ applications with ease. Built as a standalone component using modern Angular features including signals and effects.
+> Embed X (Twitter) timelines in your Angular 21+ applications with ease. Built as a standalone component using modern Angular features including signals and effects.
 
 ---
 
@@ -25,7 +25,7 @@
 
 ## ✨ Features
 
-- ✅ **Angular 20+** - Built for the latest Angular version
+- ✅ **Angular 21+** - Built for the latest Angular version
 - ✅ **Standalone Component** - No NgModule required
 - ✅ **Signal Inputs** - Modern reactive programming
 - ✅ **TypeScript** - Full type safety with strict typing
@@ -66,8 +66,8 @@ pnpm add angular-twitter-timeline
 
 ### Requirements
 
-- Angular 20.0.0 or higher
-- TypeScript 5.8 or higher
+- Angular 21.0.0 or higher
+- TypeScript 5.9 or higher
 
 ---
 
@@ -266,7 +266,7 @@ export class DynamicTimelineComponent {
 ### Component Selector
 
 ```typescript
-<angular-twitter-timeline [data]="..." [opts]="..."></angular-twitter-timeline>
+<angular-twitter-timeline [data]="..." [opts]="..."/>
 ```
 
 ### Input Properties
@@ -377,9 +377,9 @@ The following properties are marked as `@deprecated` and **no longer work**:
 
 ## 🔄 Migration Guide
 
-### From Version 19 to 20
+### From Version 20 to 21
 
-If you're upgrading from Angular 19, the API remains compatible. Update your Angular dependencies:
+If you're upgrading from Angular 20, the API remains compatible. Update your Angular dependencies:
 
 ```bash
 ng update @angular/core @angular/cli
