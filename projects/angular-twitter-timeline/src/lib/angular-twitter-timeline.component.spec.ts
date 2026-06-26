@@ -54,17 +54,32 @@ describe('AngularTwitterTimelineComponent', () => {
     expect(mockTwitterService.loadScript).toHaveBeenCalled();
   }));
 
-  it('should update defaultData based on input', fakeAsync(() => {
+  it('should compute fallbackUrl and displayName based on input', fakeAsync(() => {
     componentRef.setInput('data', { sourceType: 'profile', screenName: 'test_user' });
     fixture.detectChanges();
     tick();
 
-    expect(component.defaultData.url).toBeUndefined();
+    expect(component.fallbackUrl()).toBe('https://twitter.com/test_user');
+    expect(component.displayName()).toBe('test_user');
 
     componentRef.setInput('data', { sourceType: 'url', url: 'https://twitter.com/test' });
     fixture.detectChanges();
     tick();
 
-    expect(component.defaultData.screenName).toBeUndefined();
+    expect(component.fallbackUrl()).toBe('https://twitter.com/test');
+    expect(component.displayName()).toBe('test');
+  }));
+
+  it('should toggle loading state when timeline is created', fakeAsync(() => {
+    componentRef.setInput('data', { sourceType: 'profile', screenName: 'test_user' });
+    
+    // Initial state before load completion
+    expect(component.loading()).toBeTrue();
+
+    fixture.detectChanges();
+    tick();
+
+    // Mock service returns immediately, so loading becomes false
+    expect(component.loading()).toBeFalse();
   }));
 });

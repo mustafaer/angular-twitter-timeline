@@ -2,9 +2,9 @@
 
 [![npm version](https://img.shields.io/npm/v/angular-twitter-timeline.svg)](https://www.npmjs.com/package/angular-twitter-timeline)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Angular](https://img.shields.io/badge/Angular-21-red.svg)](https://angular.io/)
+[![Angular](https://img.shields.io/badge/Angular-22-red.svg)](https://angular.io/)
 
-> Embed X (Twitter) timelines in your Angular 21+ applications with ease. Built as a standalone component using modern Angular features including signals and effects.
+> Embed X (Twitter) timelines in your Angular 22+ applications with ease. Built as a standalone component using modern Angular features including signals and effects.
 
 ---
 
@@ -25,13 +25,17 @@
 
 ## ✨ Features
 
-- ✅ **Angular 21+** - Built for the latest Angular version
+- ✅ **Angular 22+** - Built for the latest Angular version
 - ✅ **Standalone Component** - No NgModule required
-- ✅ **Signal Inputs** - Modern reactive programming
+- ✅ **Signal Inputs & Computeds** - Modern reactive programming
 - ✅ **TypeScript** - Full type safety with strict typing
 - ✅ **Tree-shakeable** - Optimized bundle size
 - ✅ **SSR Compatible** - Works with Angular Universal
 - ✅ **Customizable** - Theme, size, and language options
+- ✅ **CLS (Layout Shift) Prevention** - Loading placeholder matches configured height to prevent layout jumps
+- ✅ **SEO & Indexing Optimized** - Fallback link structure allows search crawler indexing
+- ✅ **No-JS & Adblock Fallback** - Native fallback link remains functional if JavaScript is disabled or blocked
+- ✅ **Memory Safe** - Automatically tears down loading subscription on component destruction to prevent leaks
 - ✅ **X Platform Updated** - Compatible with latest X API changes
 
 ---
@@ -66,8 +70,8 @@ pnpm add angular-twitter-timeline
 
 ### Requirements
 
-- Angular 21.0.0 or higher
-- TypeScript 5.9 or higher
+- Angular 22.0.0 or higher
+- TypeScript 6.0 or higher
 
 ---
 
@@ -377,9 +381,9 @@ The following properties are marked as `@deprecated` and **no longer work**:
 
 ## 🔄 Migration Guide
 
-### From Version 20 to 21
+### From Version 21 to 22
 
-If you're upgrading from Angular 20, the API remains compatible. Update your Angular dependencies:
+If you're upgrading from Angular 21, the API remains compatible. Update your Angular dependencies:
 
 ```bash
 ng update @angular/core @angular/cli

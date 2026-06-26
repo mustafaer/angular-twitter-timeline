@@ -1,6 +1,6 @@
 # Angular Twitter Timeline
 
-Embed Twitter Timeline in Angular application.
+Embed X (Twitter) timelines in your Angular 22+ applications with ease. Built with modern Angular features including Signals, SSR compatibility, CLS (Cumulative Layout Shift) prevention, and accessibility (a11y) support.
 
 ## Installation
 
@@ -12,7 +12,7 @@ $ npm i angular-twitter-timeline
 
 ## Usage
 
-### Standalone Component (Recommended for Angular 20)
+### Standalone Component (Recommended for Angular 22)
 
 Import the component directly in your Angular app:
 
